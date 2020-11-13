@@ -31,4 +31,5 @@ worker-2   Ready    <none>   24m   v1.18.0
 
 ## ToDo
 
-- not tested for Windows
+- add a loadbalancer for nodeport
+- test for Windows

@@ -28,3 +28,7 @@ master     Ready    master   36m   v1.18.0
 worker-1   Ready    <none>   30m   v1.18.0
 worker-2   Ready    <none>   24m   v1.18.0
 ```
+
+## ToDo
+
+- not tested for Windows

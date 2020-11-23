@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     c.vm.provider "virtualbox" do |v|
       v.gui = false
       v.cpus = 2
-      v.memory = 2048
+      v.memory = 1024
     end
 
     c.vm.provision :shell, :path => "scripts/common/setup-initial-ubuntu.sh"
@@ -28,7 +28,8 @@ Vagrant.configure("2") do |config|
   end
 
   (1..2).each do |n|
-    config.vm.define "worker-#{n}" do |c| c.vm.hostname = "worker-#{n}.internal"
+    config.vm.define "worker-#{n}" do |c|
+      c.vm.hostname = "worker-#{n}.internal"
       c.vm.network "private_network", ip: "10.240.0.3#{n}"
       c.vm.provider "virtualbox" do |v|
         v.gui = false
@@ -41,6 +42,18 @@ Vagrant.configure("2") do |config|
       c.vm.provision :shell, :path => "scripts/common/setup-k8s.sh"
       c.vm.provision :shell, :path => "scripts/worker/setup-k8s-worker.sh"
     end
+  end
+
+  config.vm.define "test" do |c|
+    c.vm.hostname = "test.internal"
+    c.vm.network "private_network", ip: "10.240.0.51"
+    c.vm.provider "virtualbox" do |v|
+      v.gui = false
+      v.cpus = 1
+      v.memory = 512
+    end
+
+    c.vm.provision :shell, :path => "scripts/common/setup-initial-ubuntu.sh"
   end
 
 end

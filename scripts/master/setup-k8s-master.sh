@@ -9,7 +9,7 @@ IPADDR=$(ip a show enp0s8 | grep inet | grep -v inet6 | awk '{print $2}' | cut -
 sudo kubeadm init \
   --control-plane-endpoint="${IPADDR}:6443" \
   --apiserver-advertise-address="${IPADDR}" \
-  --kubernetes-version="v1.18.0" \
+  # --kubernetes-version="v1.18.0" \
   --pod-network-cidr="192.168.0.0/16" \
   --upload-certs
 

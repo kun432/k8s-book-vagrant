@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-KUBERNETES_VERSION=1.18.0-00
+# KUBERNETES_VERSION=1.18.0-00
 
 # install lecagy binary
 sudo apt-get install -y iptables arptables ebtables
@@ -15,7 +15,7 @@ EOF
 sudo apt-get update -y
 
 # install kubeadm, kubelet, kubectl
-sudo apt-get install -y kubelet=${KUBERNETES_VERSION} kubeadm=${KUBERNETES_VERSION} kubectl=${KUBERNETES_VERSION}
+sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # get private network IP addr and set bind it to kubelet

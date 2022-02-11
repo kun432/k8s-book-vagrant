@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/focal64"
 
+  config.vm.synced_folder ".", "/vagrant" , type: "virtualbox"
   #config.vm.synced_folder "./share", "/share" , type: "virtualbox"
   
   # always before setting up worker nodes

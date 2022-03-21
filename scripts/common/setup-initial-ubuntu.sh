@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # set timezone
-sudo timedatectl set-timezone Asia/Tokyo
+sudo timedatectl set-timezone Asia/Ho_Chi_Minh
 
 # update all
 sudo apt-get update -y
